@@ -1,0 +1,46 @@
+{% include "../base.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontdesk/style.css' %}">
+    <title>Welcome to Hospital Front Desk</title>
+</head>
+<body>
+    <div class="top-buttons">
+        <div class="button-left col-md-2">Doctor Login</div>
+        <span class="col-md-3"></span>
+        <div class="button-center col-md-2">Schedule Appointment</div>
+        <span class="col-md-3"></span>
+        <div class="button-right col-md-2">EMERGENCY!</div>
+    </div>
+    <div class="container" style="padding-top:5%;">
+        <div class="card card-1">
+            <h2 style="padding-left: 15px;">Our Doctors</h2>
+            {% if doctor_list %}
+            <ul style="padding-top: 10px; padding-bottom: 10px">
+                {% for doctor in doctor_list %}
+                    <a href="/frontdesk/{{doctor.doctor_name}}/">
+                        <li>{{doctor.doctor_name}} 
+                            <span class="speciality_badge">{{doctor.doctor_specialisation}}</span> 
+                            <span class="availability">
+                                {% if doctor.doctor_availability %} 
+                                    <span class="available">Available</span>
+                                {% else %}
+                                    <span class="busy">Busy</span>
+                                {% endif %}
+                            </span>
+                        <li>    
+                    </a>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+html, body {
+    background: #e2e1e0;
+    margin: 5px 5px 5px 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #2e2e2e;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    color: #2e2e2e;
+}
+
+li {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.6em;
+    font-weight: bolder;
+    list-style-type: none;
+}
+
+.top-buttons {
+    padding: 15px 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button-left, .button-center {
+    padding: 0.5%;
+    border: #cc0000 1px solid;
+    border-radius: 5%/22%;
+}
+
+.button-left:hover, .button-center:hover {
+    background: #cc0000;
+    color: #eee;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-20px);
+		-ms-transform:     translateY(-20px);
+		transform:         translateY(-20px)
+	}
+	60% {
+		-webkit-transform: translateY(-10px);
+		-ms-transform:     translateY(-10px);
+		transform:         translateY(-10px)
+	}
+}
+
+.button-right {
+    padding: 0.5%;
+    border: #cc0000 1px solid;
+    border-radius: 5%/22%;
+    background: #cc0000;
+    color: #eee;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.button-right:hover {
+    box-shadow: 8px 5px 14px rgba(0,0,0,0.30);
+    transition: 0.18s;
+    cursor: pointer;
+    cursor: pointer;
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+}
+
+.card-1 {
+    background: #f0f0f0;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    border-radius: 3%/10%;
+    /* border: #cc0000 2px double; */
+  }
+
+.speciality_badge {
+    font-size: 0.75em !important;
+    font-weight: bold !important;
+    background: #cc0000;
+    padding: 0.35%;
+    color: #eee;
+    border-radius: 10%/30%;
+}
+
+.availability {
+    font-size: 0.75em !important;
+    font-weight: bold !important;
+}
+
+.available {
+    border: #0c4b33 1px solid;
+    color: #0c4b33;
+    padding: 0.35%;
+    border-radius: 10%/30%;
+}
+
+.busy {
+    border: #cc0000 1px solid;
+    color: #cc0000;
+    padding: 0.35%;
+    border-radius: 10%/30%;
+}
