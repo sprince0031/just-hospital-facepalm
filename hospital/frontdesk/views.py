@@ -11,3 +11,7 @@ def index(request):
 def doctorDetails(request, doctor_name):
     doctor = DoctorDetails.objects.get(doctor_name=doctor_name)
     return render(request, 'frontdesk/doctorDetails.html', {'doctor': doctor})
+
+def doctorBusy(request, doctor_name):
+    busyDoctor = DoctorDetails.objects.get(doctor_name=doctor_name)
+    return render(request, 'frontdesk/busyDoctor.html', {'busyDoctor': busyDoctor})

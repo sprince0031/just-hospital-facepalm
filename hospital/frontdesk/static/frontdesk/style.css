@@ -14,8 +14,9 @@ a:hover, a:focus {
 }
 
 li {
-    text-align: center;
-    padding: 10px;
+    text-align: justify;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 1.6em;
     font-weight: bolder;
     list-style-type: none;

@@ -1,12 +1,50 @@
+{% include '../base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'frontdesk/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'frontdesk/docDetails.css' %}">
     <title>Doctor Details</title>
 </head>
 <body>
-    <h1>{{doctor.doctor_name}}'s details here!</h1>
+    <div class="top-buttons">
+        <div class="button-left col-md-2">Doctor Login</div>
+        <span class="col-md-3"></span>
+        <div class="button-center col-md-2">Schedule Appointment</div>
+        <span class="col-md-3"></span>
+        <div class="button-right col-md-2">EMERGENCY!</div>
+    </div>
+    <div class="container" style="padding-top:5%;">
+        <div class="card card-1">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>{{doctor.doctor_name}}</h2>
+                    {% block availability %}<span class="available">Available</span>{% endblock %}<br><br>
+                    <p>Specialisation: {{doctor.doctor_specialisation}}</p>
+                    <p>Timings: {{doctor.doctor_shift_slot1_from}} - {{doctor.doctor_shift_slot1_to}} & {{doctor.doctor_shift_slot2_from}} - {{doctor.doctor_shift_slot2_to}}</p> 
+                </div>
+                <div class="col-md-2"><img src="../../static/images/redcross.png" alt="+"></div>
+                <div class="col-md-5">
+                    {% block patient %}
+                        {% if doctor.doctor_availability %}
+                            <form action="{% url 'frontdesk:doctorBusy' doctor.doctor_name %}" method="POST">
+                                {% csrf_token %}
+                                <h2><input type="text" name='patient_name'></h2><br>
+                                <p>Age: <input type="number" name='patient_age'><br></p>
+                                <p>DoB: <input type="date" name="patient_dob"></p>
+                            </form>
+                        
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
