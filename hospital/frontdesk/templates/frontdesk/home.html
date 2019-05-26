@@ -25,16 +25,21 @@
             {% if doctor_list %}
             <ul style="padding-top: 10px; padding-bottom: 10px">
                 {% for doctor in doctor_list %}
-                    <a href="/frontdesk/{{doctor.doctor_name}}/">
-                        <li>{{doctor.doctor_name}} 
-                            <span class="speciality_badge">{{doctor.doctor_specialisation}}</span> 
-                            <span class="availability">
-                                {% if doctor.doctor_availability %} 
-                                    <span class="available">Available</span>
-                                {% else %}
-                                    <span class="busy">Busy</span>
-                                {% endif %}
-                            </span>
+                    <a href="{% url 'frontdesk:doctorDetails' doctor.id %}">
+                        <li>
+                            <div class="col-md-10">
+                                {{doctor.doctor_name}} 
+                                <span class="speciality_badge">{{doctor.doctor_specialisation}}</span> 
+                            </div>
+                            <div class="col-md-2">
+                                <span class="availability">
+                                    {% if doctor.doctor_availability %} 
+                                        <span class="available">Available</span>
+                                    {% else %}
+                                        <span class="busy">Busy</span>
+                                    {% endif %}
+                                </span>
+                            </div>
                         <li>    
                     </a>
                 {% endfor %}

@@ -8,6 +8,10 @@ def index(request):
     context = {'doctor_list': doctor_list}
     return render(request, 'frontdesk/home.html', context)
 
-def doctorDetails(request, doctor_name):
-    doctor = DoctorDetails.objects.get(doctor_name=doctor_name)
+def doctorDetails(request, id):
+    doctor = DoctorDetails.objects.get(id=id)
     return render(request, 'frontdesk/doctorDetails.html', {'doctor': doctor})
+
+def doctorBusy(request, id):
+    busyDoctor = DoctorDetails.objects.get(id=id)
+    return render(request, 'frontdesk/busyDoctor.html', {'busyDoctor': busyDoctor})
