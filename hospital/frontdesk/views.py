@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import DoctorDetails
 
-from .forms import PatientDetailsForm
+from .forms import PatientDetailsForm, AppointmentDetailsForm
 
 def index(request): 
     doctor_list = DoctorDetails.objects.order_by('-doctor_availability')
@@ -19,20 +19,11 @@ def doctorDetails(request, id):
     if form.is_valid():
         
         form.save()
-
+    form_1 = AppointmentDetailsForm(request.POST or None)
+    if form_1.is_valid():
+        form_1.save()
     
-    context = {'doctor': doctor, 'form': form}
-    
-
-    '''
-    form = PatientDetailsForm(request.POST or None)
-    if form.is_valid():
-        form.patient_name = form.cleaned_data['patient_name']
-        # form.patient_new = form.cleaned_data['patient_new']
-        # form.patient_state = form.cleaned_data['patient_state']
-        form.save()
-    
-    '''
+    context = {'doctor': doctor, 'form': form, 'form_1': form_1}
 
     return render(request, 'frontdesk/doctorDetails.html', context)
 
