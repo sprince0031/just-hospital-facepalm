@@ -34,9 +34,22 @@
                         {% if doctor.doctor_availability %}
                             <form action="{% url 'frontdesk:doctorBusy' doctor.id %}" method="POST">
                                 {% csrf_token %}
-                                <h2><input type="text" name='patient_name'></h2><br>
-                                <p>Age: <input type="number" name='patient_age'><br></p>
-                                <p>DoB: <input type="date" name="patient_dob"></p>
+                                <!-- <h2><input type="text" name='patient_name' id="patient_name" placeholder="Patient Name"></h2><br>
+                                <div class="patient_details">
+                                    <input type="checkbox" name="patient_new" id="patient_new"> Returning Patient<br>
+                                    <input type="radio" name="patient_state" value="Normal" id="patient_state"> Normal
+                                    <input type="radio" name="patient_state" value="Need_Attention" id="patient_state"> Needs Attention
+                                    <input type="radio" name="patient_state" value="Critical" id="patient_state"> Critical<br>
+                                    <p>Age: <input type="number" name="patient_age"><br></p>
+                                    <p>DoB: <input type="date" name="patient_dob"></p>
+                                </div>
+                                <div class="appointment_details">
+                                    <input type="text" placeholder="Reason for appointment" id="appointment_reason"><br>
+                                    <input type="date" name="appointment_date" id="appointment_date">
+                                    <input type="time" name="appointment_time" id="appointment_time">
+                                </div><br> -->
+                                {{form}}
+                                <input type="submit" value="Fix Apointment">
                             </form>
                         
                         {% endif %}
