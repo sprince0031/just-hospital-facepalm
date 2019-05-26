@@ -1,4 +1,6 @@
 {% include '../base.html' %}
+{% load crispy_forms_tags %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +34,11 @@
                 <div class="col-md-5">
                     {% block patient %}
                         {% if doctor.doctor_availability %}
-                            <form action="{% url 'frontdesk:doctorBusy' doctor.id %}" method="POST">
+                            <!-- <form action="{% url 'frontdesk:doctorBusy' doctor.id %}" method="POST"> -->
+                            <form method="POST">
                                 {% csrf_token %}
+                                {{form.as_p}}
+
                                 <!-- <h2><input type="text" name='patient_name' id="patient_name" placeholder="Patient Name"></h2><br>
                                 <div class="patient_details">
                                     <input type="checkbox" name="patient_new" id="patient_new"> Returning Patient<br>
@@ -48,8 +53,7 @@
                                     <input type="date" name="appointment_date" id="appointment_date">
                                     <input type="time" name="appointment_time" id="appointment_time">
                                 </div><br> -->
-                                {{form}}
-                                <input type="submit" value="Fix Apointment">
+                                <input type="submit" value="Fix Appointment">
                             </form>
                         
                         {% endif %}

@@ -11,14 +11,29 @@ def index(request):
     return render(request, 'frontdesk/home.html', context)
 
 def doctorDetails(request, id):
+
     doctor = DoctorDetails.objects.get(id=id)
+
+    form = PatientDetailsForm(request.POST or None)
+    
+    if form.is_valid():
+        
+        form.save()
+
+    
+    context = {'doctor': doctor, 'form': form}
+    
+
+    '''
     form = PatientDetailsForm(request.POST or None)
     if form.is_valid():
         form.patient_name = form.cleaned_data['patient_name']
         # form.patient_new = form.cleaned_data['patient_new']
         # form.patient_state = form.cleaned_data['patient_state']
         form.save()
-    context = {'doctor': doctor, 'form': form}
+    
+    '''
+
     return render(request, 'frontdesk/doctorDetails.html', context)
 
 def doctorBusy(request, id):
