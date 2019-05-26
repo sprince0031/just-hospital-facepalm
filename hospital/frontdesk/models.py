@@ -28,6 +28,7 @@ class AppointmentDetails(models.Model):
 class PatientSteggedDetails(models.Model):
     patient_name = models.CharField(max_length=100)
     patient_steg = models.ImageField()
+    patient_state = models.CharField(max_length=50)
     patient_new = models.BooleanField(default=True)
     def __str__(self):
         return self.patient_steg

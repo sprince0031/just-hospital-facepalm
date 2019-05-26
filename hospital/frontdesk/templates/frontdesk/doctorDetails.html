@@ -32,7 +32,7 @@
                 <div class="col-md-5">
                     {% block patient %}
                         {% if doctor.doctor_availability %}
-                            <form action="{% url 'frontdesk:doctorBusy' doctor.doctor_name %}" method="POST">
+                            <form action="{% url 'frontdesk:doctorBusy' doctor.id %}" method="POST">
                                 {% csrf_token %}
                                 <h2><input type="text" name='patient_name'></h2><br>
                                 <p>Age: <input type="number" name='patient_age'><br></p>
