@@ -9,9 +9,9 @@ from .models import PatientSteggedDetails, AppointmentDetails
 class PatientDetailsForm(forms.ModelForm):
     class Meta:
         model = PatientSteggedDetails
-        fields = ["patient_name", "patient_new", "patient_state", "patient_age", "patient_DOB"]
+        fields = ["patient_name", "patient_new", "patient_state", "patient_age", "patient_DOB", "reason_for_consultation", "appointment_date", "appointment_time"]
 
-class AppointmentDetailsForm(forms.ModelForm):
-    class Meta:
-        model = AppointmentDetails
-        fields = ["reason_for_consultation", "appointment_date", "appointment_time"]
+# class AppointmentDetailsForm(forms.ModelForm):
+#     class Meta:
+#         model = AppointmentDetails
+#         fields = ["reason_for_consultation", "appointment_date", "appointment_time"]
